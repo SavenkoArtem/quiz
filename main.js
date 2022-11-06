@@ -85,6 +85,28 @@ function checkAnswer(){
         return
     }
 
+    const userAnswer = parseInt(checkedRadio.value);
     
+    if (userAnswer === questions[questionIndex]['correct']) {
+        score++;        
+    }
+    console.log('score', score);
+
+    if (questions.length !== questionIndex + 1) {
+        console.log('Not last question');
+        questionIndex++;
+        clearPage()
+        showQuestion()
+        return;
+    } else {
+        console.log('This is last question');
+        clearPage();
+        showResults();
+    }
     
+}
+
+
+function showResults(){
+    console.log('showResults started');
 }
