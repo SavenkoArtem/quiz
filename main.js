@@ -138,4 +138,8 @@ function showResults(){
                             .replace('%result%', result)
 
     headerContainer.innerHTML = finalMessage;
+    
+    submitBtn.blur();
+    submitBtn.innerText = 'Start over';
+    submitBtn.onclick = () => history.go();    
 }
