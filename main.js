@@ -109,4 +109,33 @@ function checkAnswer(){
 
 function showResults(){
     console.log('showResults started');
+    console.log(score)
+
+    const resultTemplate = `
+        <h2 class="title">%title%</h2>
+        <h3 class="summary">%message%</h3>
+        <p class="result">%result%</p>
+    `;
+
+    let title, message;
+
+    if (score === questions.length) {
+        title = 'Congratulate!';
+        message = 'You answered all the questions correctly!';
+    } else if ((score * 100)/questions.length >= 50) {
+        title = 'Not bad';
+        message = 'They gave out more than half of the correct answers!';
+    } else {
+        title = 'It\'s worth trying';
+        message = 'So far you have less than half of the correct results';
+    }
+
+    let result = `${score} - ${questions.length}`;
+
+    const finalMessage = resultTemplate
+                            .replace('%title%', title)
+                            .replace('%message%', message)
+                            .replace('%result%', result)
+
+    headerContainer.innerHTML = finalMessage;
 }
